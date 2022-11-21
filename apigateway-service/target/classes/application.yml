@@ -14,13 +14,15 @@ spring:
           filters:
             - AddRequestHeader=first-request, this-is-header-value-1
             - AddResponseHeader=first-response, this-is-header-value-1
+            - CustomFilter
         - id: second-service
           uri: http://localhost:8082/
           predicates:
             - Path=/second-service/**
           filters:
             - AddRequestHeader=second-request, this-is-header-value-2
-            - AddResponseHeader=first-response, this-is-header-value-2
+            - AddResponseHeader=second-response, this-is-header-value-2
+            - CustomFilter
 
 eureka:
   client:
