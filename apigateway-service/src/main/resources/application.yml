@@ -20,7 +20,7 @@ spring:
             - Path=/second-service/**
           filters:
             - AddRequestHeader=second-request, this-is-header-value-2
-            - AddResponseHeader=first-response, this-is-header-value-2
+            - AddResponseHeader=second-response, this-is-header-value-2
 
 eureka:
   client:
