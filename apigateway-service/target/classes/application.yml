@@ -6,6 +6,13 @@ spring:
     name: apigateway-service
   cloud:
     gateway:
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: Spring Cloud 게이트웨이 글로벌 필터
+            preLogger: true
+            postLogger: true
+
       routes:
         - id: first-service
           uri: http://localhost:8081/
@@ -23,6 +30,7 @@ spring:
             - AddRequestHeader=second-request, this-is-header-value-2
             - AddResponseHeader=second-response, this-is-header-value-2
             - CustomFilter
+
 
 eureka:
   client:
